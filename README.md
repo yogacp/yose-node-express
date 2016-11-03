@@ -1,4 +1,4 @@
-# YoseTheGame
+# YoseTheGame Mercure
 
 ## Get ready
 
