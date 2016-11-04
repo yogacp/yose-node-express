@@ -2,6 +2,8 @@
 
 ## Get ready
 
+[ ![Codeship Status for yogacp/yose-node-express](https://app.codeship.com/projects/383de4b0-83d7-0134-1b95-5a6e1cd0be7b/status?branch=master)](https://app.codeship.com/projects/182917)
+
 [fork](https://help.github.com/articles/fork-a-repo) me and [clone](https://help.github.com/articles/fork-a-repo#step-2-clone-your-fork) your repository locally.
 
 install [node.js](http://nodejs.org/) then run from the command line
