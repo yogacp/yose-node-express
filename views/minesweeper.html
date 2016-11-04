@@ -15,7 +15,17 @@ document.onreadystatechange=load();
 {% block content %}
 <h1 id="title">Minesweeper</h1>
 
-<table>
-<tr></tr>
+<table id="minesweeper_table" cellspacing="2" border="1">
+{{table_content|safe}}
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#minesweeper_table tr td').on('click',function(){
+            var $this = $(this);
+            var lost  = $this.hasClass('lost') === true ? 'and You LOST' : '';
+            alert('Cell '+$(this).attr('id')+' clicked '+lost+'.');
+        });
+    });
+</script>
 {% endblock %}
