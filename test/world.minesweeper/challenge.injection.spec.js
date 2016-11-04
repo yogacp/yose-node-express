@@ -36,27 +36,34 @@ describe('Passing the Minesweeper: injection level:', function () {
         });
     });
 
+    it("Should have word 'Minesweeper' ", function (done) {
+        request('http://localhost:7000/', function(error, response, body) {
+            expect(body).to.contain( 'Minesweeper' );
+            done(); 
+        });
+    });
+
     // it("can inject document.grid", function(done){
     //     browser.visit(url, function(err) {
 
-    //         browser.assert.global('grid', [[]]);
+    //         browser.assert.global('grid', data);
 
     //         done();
     //     });
     // });
 
-    // it("returns class='lost' when cell is clicked", function(done) {
-    //     browser.visit(url, function(err) {
-    //         browser.document.grid = data;
-    //         var element;
+    it("returns class='lost' when cell is clicked", function(done) {
+        browser.visit(url, function(err) {
+            browser.document.grid = data;
+            var element;
 
-    //         browser.click('[id="cell-2x1"]');
-    //         element = browser.query('[id="cell-2x1"]');
-    //         expect(element.className).to.equal('lost');
+            browser.click('[id="2x1"]');
+            element = browser.query('[id="2x1"]');
+            expect(element.className).to.equal('lost');
 
-    //         done();
-    //     });
+            done();
+        });
 
-    // });
+    });
 
 });
