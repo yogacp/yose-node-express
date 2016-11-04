@@ -1,8 +1,13 @@
 primeFactorsOf = function (number) {
-	var factorPowers = [];
+	var hasil = [];
 	var factors = primeFactorList(number);
-	factorPowers = toFactorPowerList(factors);
-	return factorPowers;
+	var factorPowers = toFactorPowerList(factors);
+	for (var i = 0; i < factorPowers.length; i++) {
+		for (var j = 0; j < factorPowers[i][1]; j++) {
+			hasil.push(factorPowers[i][0]);
+		}
+	}
+	return hasil;
 };
 
 function primeFactorList(n) {
@@ -30,15 +35,17 @@ function smallestFactor(n) {
 function toFactorPowerList(factors) {
 	var result = [];
 	var prevFactor = factors[0];
-	var count = 1;
-	for (var i = 1; i < factors.length; i++) {
+	var count = 0;
+	for (var i = 0; i < factors.length; i++) {
 		if (factors[i] == prevFactor) {
 			count++;
+		} else {
+			result.push([prevFactor, count]);
+			prevFactor = factors[i];
+			count = 1;
 		}
 	}
-	for (var i = 0; i < count; i++) {
-		result.push(prevFactor);
-	}
+	result.push([prevFactor, count]);
 	return result;
 }
 
