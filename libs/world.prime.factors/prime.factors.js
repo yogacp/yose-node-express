@@ -6,7 +6,7 @@ var primeFactors = function (request, response) {
     if (isNaN(request.query['number'])) {
         response.send(JSON.stringify({
             number: request.query['number'],
-            decomposition: "not a number"
+            error: "not a number"
         }));
     } else {
         var number = parseInt(request.query['number']);

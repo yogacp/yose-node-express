@@ -28,10 +28,10 @@ describe('Passing the Power of Two level:', function () {
     });
 
     it('returns error output', function (done) {
-        request('http://localhost:7000/primeFactors?number=number', function (error, response, body) {
+        request('http://localhost:7000/primeFactors?number=batman', function (error, response, body) {
             expect(body).to.deep.equal(JSON.stringify({
-                "number": "number",
-                "decomposition": "not a number"
+                "number": "batman",
+                "error": "not a number"
             }));
 
             done();
