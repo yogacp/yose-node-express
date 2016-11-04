@@ -27,11 +27,22 @@ describe('Passing the Power of Two level:', function () {
         });
     });
 
-    it('returns error output', function (done) {
+    it('returns error when not number', function (done) {
         request('http://localhost:7000/primeFactors?number=batman', function (error, response, body) {
             expect(body).to.deep.equal(JSON.stringify({
                 "number": "batman",
                 "error": "not a number"
+            }));
+
+            done();
+        });
+    });
+
+    it('returns error when to big number', function (done) {
+        request('http://localhost:7000/primeFactors?number=1000001', function (error, response, body) {
+            expect(body).to.deep.equal(JSON.stringify({
+                "number": 1000001,
+                "error": "too big number (>1e6)"
             }));
 
             done();

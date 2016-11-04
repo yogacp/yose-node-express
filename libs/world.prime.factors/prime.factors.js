@@ -11,10 +11,17 @@ var primeFactors = function (request, response) {
     } else {
         var number = parseInt(request.query['number']);
         var decomposition = primeFactorsOf(number);
-        response.send(JSON.stringify({
-            number: number,
-            decomposition: decomposition
-        }));
+        if (number > 1e6) {
+            response.send(JSON.stringify({
+                number: number,
+                error: "too big number (>1e6)"
+            }));
+        } else {
+            response.send(JSON.stringify({
+                number: number,
+                decomposition: decomposition
+            }));
+        }
     }
 };
 
