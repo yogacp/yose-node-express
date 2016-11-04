@@ -15,7 +15,7 @@ var minesweeper = function(request, response) {
 		table_content += "<tr>";
 		for(var j = 0; j < data.length; j++){
 			var lost = data[i][j] == 'bomb' ? 'lost' : ''; 
-			table_content += "<td id='cell-"+i+"x"+j+"' class='"+lost+"'>Cell - "+i+"x"+j+"</td>";
+			table_content += "<td id='"+i+"x"+j+"' class='"+lost+"'>Cell - "+i+"x"+j+"</td>";
 		}
 		table_content += "</tr>";
 	}

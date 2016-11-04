@@ -57,8 +57,8 @@ describe('Passing the Minesweeper: injection level:', function () {
             browser.document.grid = data;
             var element;
 
-            browser.click('[id="cell-1x0"]');
-            element = browser.query('[id="cell-1x0"]');
+            browser.click('[id="1x0"]');
+            element = browser.query('[id="1x0"]');
             expect(element.className).to.equal('lost');
 
             done();
