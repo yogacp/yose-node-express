@@ -23,15 +23,9 @@ server.get('/minesweeper', function(request, response){
     require('./world.minesweeper/minesweeper')(request, response);
 });
 
+server.set('view engine', 'jade');
 server.get('/astroport', function(request, response){
 	require('./world.astroport/astroport')(request, response);
-/*	
-	response.statusCode = 200;
-	response.setHeader('Content-Type', 'text/plain');
-	response.end('Hello World\n');
-*/
-	var astro = new astroport(request, response);
-
 });
 
 server.use(express.static('public'));
